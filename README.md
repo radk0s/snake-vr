@@ -1,1 +1,1 @@
-"# Snake VR" 
+Snake VR
