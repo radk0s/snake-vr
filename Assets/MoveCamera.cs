@@ -11,7 +11,7 @@ public class MoveCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 offset = Camera.main.transform.forward* speed *Time.deltaTime;
+        Vector3 offset = Camera.main.transform.forward * speed * Time.deltaTime;
         offset.y = 0;
         transform.Translate(offset);
     }
