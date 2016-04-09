@@ -12,7 +12,7 @@ public class PerformEating : MonoBehaviour
     void Start()
     {
         eatenCnt = 0;
-        eatenText = GameObject.Find("/HUD/Eaten").GetComponent<Text>();
+        eatenText = GameObject.Find("CardboardMain/Head/HUD/Eaten").GetComponent<Text>();
     }
 
     void Update() {
