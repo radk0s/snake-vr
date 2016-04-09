@@ -44,7 +44,7 @@ public class PerformEating : MonoBehaviour
     {
         if (other.tag == "World")
         {
-            print("You loose");
+            Application.LoadLevel("GameOver");
         }
         
     }
