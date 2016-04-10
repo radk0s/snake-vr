@@ -5,12 +5,14 @@ using System.Collections;
 public class PerformEating : MonoBehaviour
 {
     private Text eatenText;
+    private MoveCamera cameraBehaviour;
     private int eatenCnt;
     private Vector3[] worldBounds;
 
-    // Use this for initialization
     void Start()
     {
+        cameraBehaviour = GameObject.Find("CardboardMain").GetComponent<MoveCamera>();
+
         eatenCnt = 0;
         eatenText = GameObject.Find("CardboardMain/Head/HUD/Eaten").GetComponent<Text>();
 
@@ -23,20 +25,18 @@ public class PerformEating : MonoBehaviour
         worldBounds[1] = new Vector3(worldPos.x + worldSize.x * worldFill / 2, 0, worldPos.z + worldSize.z * worldFill / 2);
     }
 
-    void Update() {
-    }
-
     void OnTriggerEnter(Collider other)
     {
         //eating
         if (other.tag == "Food")
         {
-            //Destroy(other.gameObject);
             Vector3 position = new Vector3(Random.Range(worldBounds[0].x, worldBounds[1].x), other.gameObject.transform.position.y, Random.Range(worldBounds[0].z, worldBounds[1].z));
             other.gameObject.transform.position = position; 
 
             eatenCnt++;
             eatenText.text = eatenCnt.ToString();
+
+            cameraBehaviour.Accelarate();
         }
     }
 
