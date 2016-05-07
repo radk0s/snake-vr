@@ -32,6 +32,8 @@ public class PerformEating : MonoBehaviour
         {
             Vector3 position = new Vector3(Random.Range(worldBounds[0].x, worldBounds[1].x), other.gameObject.transform.position.y, Random.Range(worldBounds[0].z, worldBounds[1].z));
             other.gameObject.transform.position = position; 
+			Vector3 rotation = new Vector3(other.gameObject.transform.rotation.x, Random.Range(0, 360), other.gameObject.transform.rotation.z);
+			other.gameObject.transform.eulerAngles = rotation;
 
             eatenCnt++;
             eatenText.text = eatenCnt.ToString();
