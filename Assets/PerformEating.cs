@@ -6,12 +6,14 @@ public class PerformEating : MonoBehaviour
 {
     private Text eatenText;
     private MoveCamera cameraBehaviour;
+    private SnakeBodyBehavior snakeBodyBehaviour;
     private int eatenCnt;
     private Vector3[] worldBounds;
 
     void Start()
     {
         cameraBehaviour = GameObject.Find("CardboardMain").GetComponent<MoveCamera>();
+        snakeBodyBehaviour = GameObject.Find("SnakeBody").GetComponent<SnakeBodyBehavior>();
 
         eatenCnt = 0;
         eatenText = GameObject.Find("CardboardMain/Head/HUD/Eaten").GetComponent<Text>();
@@ -39,6 +41,12 @@ public class PerformEating : MonoBehaviour
             eatenText.text = eatenCnt.ToString();
 
             cameraBehaviour.Accelarate();
+            snakeBodyBehaviour.AddSegment();
+        }
+        //collision with own body
+        else if (other.tag == "Snake body")
+        {
+            Application.LoadLevel("GameOver");
         }
     }
 
