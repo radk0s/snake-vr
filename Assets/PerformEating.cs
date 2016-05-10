@@ -41,7 +41,9 @@ public class PerformEating : MonoBehaviour
             eatenText.text = eatenCnt.ToString();
 
             cameraBehaviour.Accelarate();
-            snakeBodyBehaviour.AddSegment();
+
+            for(int i = 0; i < 10; i++)
+                snakeBodyBehaviour.AddSegment();
         }
         //collision with own body
         else if (other.tag == "Snake body")
