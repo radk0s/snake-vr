@@ -4,8 +4,14 @@ using System.Collections;
 public class SnakeBodyBehavior : MonoBehaviour
 {
     private const string SEGMENT_NAME = "Segment (#)";
+    private GameObject snakeHead;
 
-	void Update ()
+    void Start()
+    {
+        snakeHead = GameObject.Find("Snake head");
+    }
+
+    void Update ()
     {
         Vector3 headPosition = Camera.main.transform.position;
 
@@ -17,6 +23,7 @@ public class SnakeBodyBehavior : MonoBehaviour
         Vector3 offset = (headPosition - firstPosition);
         offset.y = 0f;
         float distance = offset.magnitude;
+        print(distance);
         children[1].Translate(offset);
 
         //the rest of segments should follow the presecutor

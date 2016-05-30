@@ -13,8 +13,6 @@ public class BloodColorBehaviour : MonoBehaviour {
 	void Update () {
         if (bleeding)
         {
-            print("Bleeding");
-
             Color color = bloodImage.color;
             if(color.a >= 0.95f) {
                 Application.LoadLevel("GameOver");

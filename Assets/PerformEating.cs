@@ -50,6 +50,7 @@ public class PerformEating : MonoBehaviour
         //collision with own body
         else if (other.tag == "Snake body")
         {
+            print(other.name);
             cameraBehaviour.Stop();
             bloodColorBehaviour.StartBleeding();
         }
