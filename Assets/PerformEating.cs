@@ -7,6 +7,7 @@ public class PerformEating : MonoBehaviour
     private Text eatenText;
     private MoveCamera cameraBehaviour;
     private SnakeBodyBehavior snakeBodyBehaviour;
+    private BloodColorBehaviour bloodColorBehaviour;
     private int eatenCnt;
     private Vector3[] worldBounds;
 
@@ -14,6 +15,7 @@ public class PerformEating : MonoBehaviour
     {
         cameraBehaviour = GameObject.Find("CardboardMain").GetComponent<MoveCamera>();
         snakeBodyBehaviour = GameObject.Find("SnakeBody").GetComponent<SnakeBodyBehavior>();
+        bloodColorBehaviour = GameObject.Find("Blood").GetComponent<BloodColorBehaviour>();
 
         eatenCnt = 0;
         eatenText = GameObject.Find("CardboardMain/Head/HUD/Eaten").GetComponent<Text>();
@@ -48,7 +50,8 @@ public class PerformEating : MonoBehaviour
         //collision with own body
         else if (other.tag == "Snake body")
         {
-            Application.LoadLevel("GameOver");
+            cameraBehaviour.Stop();
+            bloodColorBehaviour.StartBleeding();
         }
     }
 
@@ -56,7 +59,7 @@ public class PerformEating : MonoBehaviour
     {
         if (other.tag == "World")
         {
-            Application.LoadLevel("GameOver");
+            Application.LoadLevel("LosingGame");
         }
         
     }

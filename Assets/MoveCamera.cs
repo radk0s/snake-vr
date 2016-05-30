@@ -12,9 +12,6 @@ public class MoveCamera : MonoBehaviour
         Vector3 offset = Camera.main.transform.forward * speed * Time.deltaTime;
         offset.y = 0;
         transform.Translate(offset);
-
-        //move snake body
-
     }
 
     public void Accelarate()
@@ -25,5 +22,10 @@ public class MoveCamera : MonoBehaviour
     public float GetSpeed()
     {
         return speed;
+    }
+
+    public void Stop()
+    {
+        speed = 0f;
     }
 }

@@ -10,18 +10,9 @@ public class LosingGame : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Jeep")
+		if (other.tag == "Snake body")
 		{
 			Application.LoadLevel("GameOver");
 		}
-	}
-
-	void OnTriggerExit(Collider other)
-	{
-		if (other.tag == "Jeep")
-		{
-			Application.LoadLevel("GameOver");
-		}
-
 	}
 }
