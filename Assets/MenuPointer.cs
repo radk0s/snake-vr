@@ -33,6 +33,12 @@ public abstract class AbstractButtonBehavior : MonoBehaviour
 
     void Update()
     {
+        //rotate
+        Vector3 rotation = new Vector3(0, Camera.main.transform.eulerAngles.y, 0);
+        gameObject.transform.eulerAngles = rotation;
+        
+
+
         if(selected && Time.time - selectedAt > selectionTime)
         {
             PerformAction();

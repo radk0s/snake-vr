@@ -5,7 +5,7 @@ public class MoveCamera : MonoBehaviour
 {
     private float speed = 2.5f;
     private const float accelaration = 0.1f;
-    private const float maxSpeed = 7f;
+    private const float maxSpeed = 10f;
     
 	void Update ()
     {
